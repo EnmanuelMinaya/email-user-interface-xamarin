@@ -2,6 +2,12 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "Fody/6.5.2": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -67,6 +73,39 @@
     }
   },
   "libraries": {
+    "Fody/6.5.2": {
+      "sha512": "vG7NsoJvHdhHQbhheNRktTN/mKe9SwRJz42h4iThyxeJDflsbTPP1sNUuBWE+mnbbEWxoZuDThufcG1WmkGWQw==",
+      "type": "package",
+      "path": "fody/6.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "build/Fody.targets",
+        "fody.6.5.2.nupkg.sha512",
+        "fody.nuspec",
+        "netclassictask/Fody.dll",
+        "netclassictask/FodyCommon.dll",
+        "netclassictask/FodyHelpers.dll",
+        "netclassictask/FodyIsolated.dll",
+        "netclassictask/Mono.Cecil.Pdb.dll",
+        "netclassictask/Mono.Cecil.Pdb.pdb",
+        "netclassictask/Mono.Cecil.Rocks.dll",
+        "netclassictask/Mono.Cecil.Rocks.pdb",
+        "netclassictask/Mono.Cecil.dll",
+        "netclassictask/Mono.Cecil.pdb",
+        "netstandardtask/Fody.dll",
+        "netstandardtask/FodyCommon.dll",
+        "netstandardtask/FodyHelpers.dll",
+        "netstandardtask/FodyIsolated.dll",
+        "netstandardtask/Mono.Cecil.Pdb.dll",
+        "netstandardtask/Mono.Cecil.Pdb.pdb",
+        "netstandardtask/Mono.Cecil.Rocks.dll",
+        "netstandardtask/Mono.Cecil.Rocks.pdb",
+        "netstandardtask/Mono.Cecil.dll",
+        "netstandardtask/Mono.Cecil.pdb"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -561,6 +600,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "Fody >= 6.5.2",
       "NETStandard.Library >= 2.0.3",
       "Xamarin.Essentials >= 1.3.1",
       "Xamarin.Forms >= 4.3.0.908675"
@@ -608,6 +648,12 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "Fody": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[6.5.2, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",

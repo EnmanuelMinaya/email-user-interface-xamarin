@@ -1,15 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="EmailUserInterface.Views.NewMessagePage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+<ContentPage
+    x:Class="EmailUserInterface.Views.NewMessagePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="0.5*" />
+
+        </Grid.RowDefinitions>
+        <Entry
+            x:Name="ReceiverEntry"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="To:"
+            Text="{Binding ReceiverInput}" />
+        <Entry
+            x:Name="SubjectEntry"
+            Grid.Row="1"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Subject"
+            Text="{Binding SubjectInput}" />
+        <Entry
+            x:Name="SenderEntry"
+            Grid.Row="2"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="From:"
+            Text="{Binding EmailInput}" />
+        <Entry
+            x:Name="BodyEntry"
+            Grid.Row="3"
+            HorizontalOptions="FillAndExpand"
+            Text="{Binding BodyInput}" />
+
+
+        <Button
+            Grid.Row="4"
+            Command="{Binding SentCommand}"
+            Text="Sent" />
+    </Grid>
 </ContentPage>

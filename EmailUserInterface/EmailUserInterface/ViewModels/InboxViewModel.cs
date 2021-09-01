@@ -20,14 +20,14 @@ namespace EmailUserInterface.ViewModels
 
         }; 
         public ICommand GoToNewMessageCommand { get; }
-
+           
         public InboxViewModel()
         {
             GoToNewMessageCommand = new Command(OnNewMessageCommand);
         }
         private async void OnNewMessageCommand()
         {
-            await App.Current.MainPage.Navigation.PushAsync(new NewMessagePage());
+            await App.Current.MainPage.Navigation.PushAsync(new NewMessagePage(Inbox));
         }
     }
 }

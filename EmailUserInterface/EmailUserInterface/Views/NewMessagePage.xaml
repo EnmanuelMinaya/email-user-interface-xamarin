@@ -2,7 +2,9 @@
 <ContentPage
     x:Class="EmailUserInterface.Views.NewMessagePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:EmailUserInterface.ViewModels">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*" />
@@ -16,29 +18,29 @@
             x:Name="ReceiverEntry"
             HorizontalOptions="FillAndExpand"
             Placeholder="To:"
-            Text="{Binding ReceiverInput}" />
+            Text="{Binding Receiver}" />
         <Entry
             x:Name="SubjectEntry"
             Grid.Row="1"
             HorizontalOptions="FillAndExpand"
             Placeholder="Subject"
-            Text="{Binding SubjectInput}" />
+            Text="{Binding Subject}" />
         <Entry
             x:Name="SenderEntry"
             Grid.Row="2"
             HorizontalOptions="FillAndExpand"
             Placeholder="From:"
-            Text="{Binding EmailInput}" />
+            Text="{Binding Sender}" />
         <Entry
             x:Name="BodyEntry"
             Grid.Row="3"
             HorizontalOptions="FillAndExpand"
-            Text="{Binding BodyInput}" />
+            Text="{Binding Body}" />
 
 
         <Button
             Grid.Row="4"
-            Command="{Binding SentCommand}"
+            Command="{Binding AddCommand}"
             Text="Sent" />
     </Grid>
 </ContentPage>

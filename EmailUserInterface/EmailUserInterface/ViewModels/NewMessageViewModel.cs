@@ -17,6 +17,8 @@ namespace EmailUserInterface.ViewModels
         public string Body { get; set; }
         public ICommand AddCommand { get; }
 
+
+        private ObservableCollection<Message> _inbox;
         public NewMessageViewModel(ObservableCollection<Message> inbox)
         {
             _inbox = inbox;
@@ -27,13 +29,5 @@ namespace EmailUserInterface.ViewModels
                 await App.Current.MainPage.Navigation.PopAsync();
             });
         }
-
-        public NewMessageViewModel()
-        {
-            //Constructor sin parametros necesario para seleccionar binding context en el XAML
-        }
-
-        private ObservableCollection<Message> _inbox;
-
     }
 }

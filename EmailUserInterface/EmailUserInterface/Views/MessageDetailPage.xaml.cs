@@ -18,7 +18,6 @@ namespace EmailUserInterface.Views
         {
             InitializeComponent();
             BindingContext = new MessageDetailViewModel(selectedMessage);
-
         }
     }
 }

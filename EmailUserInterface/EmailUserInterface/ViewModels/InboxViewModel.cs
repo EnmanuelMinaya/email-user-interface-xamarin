@@ -9,8 +9,12 @@ using Xamarin.Forms;
 
 namespace EmailUserInterface.ViewModels
 {
-    public class InboxViewModel : BaseViewModel
+    public class InboxViewModel 
     {
+        public ObservableCollection<Message> Inbox { get; } = new ObservableCollection<Message>()
+        {
+        };
+
         private Message _selectedMessage;
         public Message SelectedMessage 
         { 
@@ -28,9 +32,7 @@ namespace EmailUserInterface.ViewModels
             }
         }
         
-        public ObservableCollection<Message> Inbox { get; } = new ObservableCollection<Message>()
-        {
-        }; 
+
         public ICommand GoToNewMessageCommand { get; }
         public ICommand SelectedMessageCommand { get; }
         public ICommand DeleteCommand { get; }

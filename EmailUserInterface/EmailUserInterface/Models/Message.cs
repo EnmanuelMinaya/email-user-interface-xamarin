@@ -6,6 +6,11 @@ namespace EmailUserInterface.Models
 {
     public class Message
     {
+        public string Sender { get; set; }
+        public string Receiver { get; set; }
+        public string Subject { get; set; }
+        public DateTime Date { get; set; }
+        public string Body { get; set; }
         public Message(string sender, string receiver, string subject, DateTime date, string body)
         {
             Sender = sender;
@@ -15,11 +20,7 @@ namespace EmailUserInterface.Models
             Body = body;
         }
 
-        public string Sender { get; set; }
-        public string Receiver { get; set; }
-        public string Subject { get; set; }
-        public DateTime Date { get; set; }
-        public string Body { get; set; }
+
 
     }
 }

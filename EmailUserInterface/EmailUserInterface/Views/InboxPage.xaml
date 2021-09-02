@@ -5,11 +5,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:EmailUserInterface.ViewModels"
     x:Name="inboxPage">
+
+    <NavigationPage.TitleView>
+        <Label Text="Inbox" TextColor="White" />
+    </NavigationPage.TitleView>
+
     <ContentPage.BindingContext>
         <viewModels:InboxViewModel />
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding GoToNewMessageCommand}" Text="New message" />
+        <ToolbarItem Command="{Binding GoToNewMessageCommand}" Text="Add" />
     </ContentPage.ToolbarItems>
     <ListView
         HasUnevenRows="True"
@@ -26,11 +31,11 @@
 
                     </ViewCell.ContextActions>
                     <StackLayout>
-                        <Label Text="{Binding Subject}" />
-                        <Label Text="{Binding Body}" />
-                        <Label Text="{Binding Sender}" />
-                        <Label Text="{Binding Receiver}" />
+                        <Label Text="{Binding Sender, StringFormat='From: {0} '}" />
+                        <Label Text="{Binding Receiver, StringFormat='To: {0} '}" />
                         <Label Text="{Binding Date}" />
+                        <Label Text="{Binding Subject, StringFormat='Subject: {0} '}" />
+                        <Label Text="{Binding Body}" />
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>

@@ -15,22 +15,25 @@
 
         </Grid.RowDefinitions>
         <Entry
-            x:Name="ReceiverEntry"
-            HorizontalOptions="FillAndExpand"
-            Placeholder="To:"
-            Text="{Binding Receiver}" />
-        <Entry
-            x:Name="SubjectEntry"
-            Grid.Row="1"
-            HorizontalOptions="FillAndExpand"
-            Placeholder="Subject"
-            Text="{Binding Subject}" />
-        <Entry
             x:Name="SenderEntry"
-            Grid.Row="2"
             HorizontalOptions="FillAndExpand"
             Placeholder="From:"
             Text="{Binding Sender}" />
+
+        <Entry
+            x:Name="ReceiverEntry"
+            Grid.Row="1"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="To:"
+            Text="{Binding Receiver}" />
+
+        <Entry
+            x:Name="SubjectEntry"
+            Grid.Row="2"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Subject"
+            Text="{Binding Subject}" />
+
         <Entry
             x:Name="BodyEntry"
             Grid.Row="3"
@@ -41,6 +44,6 @@
         <Button
             Grid.Row="4"
             Command="{Binding AddCommand}"
-            Text="Sent" />
+            Text="Send" />
     </Grid>
 </ContentPage>

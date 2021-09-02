@@ -4,14 +4,31 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:EmailUserInterface.ViewModels">
-    
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="MENSAJE" />
-            <Label Text="{Binding Subject}" />
-            <Label Text="{Binding Body}" />
-            <Label Text="{Binding Sender}" />
-            <Label Text="{Binding Receiver}" />
+        <StackLayout
+            Padding="10,10,10,100"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <Label
+                FontSize="20"
+                Text="{Binding Sender, StringFormat='From: {0} '}"
+                TextColor="black" />
+            <Label
+                FontSize="20"
+                Text="{Binding Receiver, StringFormat='To: {0} '}"
+                TextColor="black" />
+
+            <Label
+                FontSize="20"
+                Text="{Binding Subject, StringFormat='Subject: {0} '}"
+                TextColor="black" />
+            <Label
+                Padding="10,10,10,40"
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="{Binding Body}"
+                TextColor="black" />
             <Label Text="{Binding Date}" />
         </StackLayout>
     </ContentPage.Content>

@@ -11,17 +11,15 @@ namespace EmailUserInterface.ViewModels
 {
     public class NewMessageViewModel : BaseViewModel
     {
-
-
         public string Subject { get; set; }
         public string Sender { get; set; }
         public string Receiver { get; set; }
         public string Body { get; set; }
         public ICommand AddCommand { get; }
 
-        public NewMessageViewModel(ObservableCollection<Message> Inbox)
+        public NewMessageViewModel(ObservableCollection<Message> inbox)
         {
-            _inbox = Inbox;
+            _inbox = inbox;
 
             AddCommand = new Command(async () =>
             {

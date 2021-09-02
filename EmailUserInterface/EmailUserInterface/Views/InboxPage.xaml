@@ -3,7 +3,8 @@
     x:Class="EmailUserInterface.Views.InboxPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewModels="clr-namespace:EmailUserInterface.ViewModels">
+    xmlns:viewModels="clr-namespace:EmailUserInterface.ViewModels"
+    x:Name="inboxPage">
     <ContentPage.BindingContext>
         <viewModels:InboxViewModel />
     </ContentPage.BindingContext>
@@ -13,10 +14,17 @@
     <ListView
         HasUnevenRows="True"
         ItemsSource="{Binding Inbox}"
-        SelectedItem="SelectedMessage">
+        SelectedItem="{Binding SelectedMessage}">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem
+                            Command="{Binding Source={x:Reference inboxPage}, Path=BindingContext.DeleteCommand}"
+                            CommandParameter="{Binding}"
+                            Text="Borrar" />
+
+                    </ViewCell.ContextActions>
                     <StackLayout>
                         <Label Text="{Binding Subject}" />
                         <Label Text="{Binding Body}" />

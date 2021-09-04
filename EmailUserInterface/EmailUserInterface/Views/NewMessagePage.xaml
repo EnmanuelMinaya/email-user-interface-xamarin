@@ -10,12 +10,14 @@
             <RowDefinition Height="0.5*" />
             <RowDefinition Height="0.5*" />
             <RowDefinition Height="0.5*" />
-            <RowDefinition Height="3*" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="0.7*" />
             <RowDefinition Height="0.5*" />
-
         </Grid.RowDefinitions>
+
         <Entry
             x:Name="SenderEntry"
+            Grid.ColumnSpan="4"
             HorizontalOptions="FillAndExpand"
             Placeholder="From:"
             Text="{Binding Sender}" />
@@ -23,6 +25,7 @@
         <Entry
             x:Name="ReceiverEntry"
             Grid.Row="1"
+            Grid.ColumnSpan="4"
             HorizontalOptions="FillAndExpand"
             Placeholder="To:"
             Text="{Binding Receiver}" />
@@ -30,19 +33,37 @@
         <Entry
             x:Name="SubjectEntry"
             Grid.Row="2"
+            Grid.ColumnSpan="4"
             HorizontalOptions="FillAndExpand"
             Placeholder="Subject"
             Text="{Binding Subject}" />
-
-        <Entry
+        <Editor
             x:Name="BodyEntry"
             Grid.Row="3"
+            Grid.ColumnSpan="4"
             HorizontalOptions="FillAndExpand"
             Text="{Binding Body}" />
 
+        <Button
+            x:Name="ImagePathEntry"
+            Grid.Row="4"
+            Grid.ColumnSpan="2"
+            Command="{Binding AddImagePathCommand}"
+            HorizontalOptions="Center"
+            Text="attach image" />
+        <Label
+            x:Name="ImagePath"
+            Grid.Row="4"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            FontSize="10"
+            HorizontalOptions="FillAndExpand"
+            Text="{Binding ImagePath}"
+            TextColor="Orange" />
 
         <Button
-            Grid.Row="4"
+            Grid.Row="5"
+            Grid.ColumnSpan="4"
             Command="{Binding AddCommand}"
             Text="Send" />
     </Grid>

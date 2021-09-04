@@ -36,6 +36,8 @@
                         <Label Text="{Binding Date}" />
                         <Label Text="{Binding Subject, StringFormat='Subject: {0} '}" />
                         <Label Text="{Binding Body}" />
+                        <Label Text="{Binding ImagePath}" />
+
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>

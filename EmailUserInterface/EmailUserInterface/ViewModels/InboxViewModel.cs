@@ -1,19 +1,26 @@
 ﻿using EmailUserInterface.Models;
 using EmailUserInterface.Views;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace EmailUserInterface.ViewModels
 {
-    public class InboxViewModel 
+    public class InboxViewModel : BaseViewModel
     {
-        public ObservableCollection<Message> Inbox { get; } = new ObservableCollection<Message>()
-        {
-        };
+
+
+
+
+        public ObservableCollection<Message> Inbox { get; set; } = new ObservableCollection<Message>();
+
+
+
 
         private Message _selectedMessage;
         public Message SelectedMessage 
@@ -42,18 +49,25 @@ namespace EmailUserInterface.ViewModels
         {
             SelectedMessageCommand = new Command<Message>(OnSelectedMessage);
 
-            GoToNewMessageCommand = new Command(OnNewMessageCommand);
-            DeleteCommand = new Command<Message>(OnDeleteMessageCommand);
+            GoToNewMessageCommand = new Command(OnNewMessage);
+            DeleteCommand = new Command<Message>(OnDeleteMessage);
+            
+            string savedInbox = Xamarin.Essentials.Preferences.Get("list", "");
+            if (savedInbox != "")
+            {
+                ObservableCollection<Message> inbox = JsonConvert.DeserializeObject<ObservableCollection<Message>>(savedInbox);
+            }
         }
-        private async void OnNewMessageCommand()
+        private async void OnNewMessage()
         {
+
             await App.Current.MainPage.Navigation.PushAsync(new NewMessagePage(Inbox));
         }
         private async void OnSelectedMessage(Message message)
         {
             await App.Current.MainPage.Navigation.PushAsync(new MessageDetailPage(message));
         }
-        private void OnDeleteMessageCommand(Message message)
+        private void OnDeleteMessage(Message message)
         {
             Inbox.Remove(message);
         }

@@ -14,6 +14,8 @@ namespace EmailUserInterface.ViewModels
         public string Subject { get; }
         public string Body { get; }
         public DateTime Date { get; }
+        public string ImagePath { get; set; }
+
 
         public MessageDetailViewModel(Message message)
         {
@@ -22,6 +24,7 @@ namespace EmailUserInterface.ViewModels
             Subject = message.Subject;
             Body = message.Body;
             Date = message.Date;
+            ImagePath = message.ImagePath;
         }
     }
 }

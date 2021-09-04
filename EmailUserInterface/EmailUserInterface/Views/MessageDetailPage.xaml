@@ -30,6 +30,8 @@
                 Text="{Binding Body}"
                 TextColor="black" />
             <Label Text="{Binding Date}" />
+            <Label Text="{Binding ImagePath}" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
